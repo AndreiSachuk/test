@@ -1,0 +1,23 @@
+<div class="container">
+  <ng-container [formGroup]="workerForm">
+    <div class="flex-center">
+      <div>Timer, ms</div>
+      <input type="number" formControlName="timerInterval" />
+      <div *ngIf="workerForm.controls['timerInterval'].errors" class="error">
+        Must be positive number
+      </div>
+    </div>
+    <div class="flex-center">
+      <div>Array size</div>
+      <input type="number" formControlName="dataArraySize" />
+      <div *ngIf="workerForm.controls['dataArraySize'].errors" class="error">
+        Must be positive number
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="flex-center">
+    <div>Additional array ids</div>
+    <input type="text" [formControl]="idsForm" />
+  </div>
+</div>

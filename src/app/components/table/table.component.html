@@ -1,0 +1,33 @@
+<table class="container">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Int</th>
+      <th>Float</th>
+      <th>Color</th>
+      <th>Child</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dataForShow$ | async; let i = index" class="info">
+      <td>{{ item.id | idChangerByIndex: i : (ids$ | async) }}</td>
+      <td>{{ item.int }}</td>
+      <td class="float">{{ item.float }}</td>
+      <td [style]="{ background: item.color }">{{ item.color }}</td>
+      <td>
+        <table class="child_container">
+          <tr>
+            <th class="child">ID</th>
+            <th class="child">Color</th>
+          </tr>
+          <tr>
+            <td>{{ item.child.id }}</td>
+            <td [style]="{ background: item.child.color }">
+              {{ item.child.color }}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>

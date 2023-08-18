@@ -1,0 +1,36 @@
+table {
+  margin: 5px;
+  border-collapse: collapse;
+}
+
+.container {
+  width: calc(100% - 10px);
+  padding: 20px;
+}
+
+.child_container {
+  border: 1pt solid black;
+  width: calc(100% - 10px);
+}
+
+td {
+  text-align: center;
+}
+
+tr {
+  &.info {
+    margin: 5px;
+    border: 1pt solid black;
+  }
+}
+
+.float {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.child {
+  width: 50%;
+}

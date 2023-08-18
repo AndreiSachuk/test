@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error {
+  color: red;
+  font-size: 10px;
+}
+
+input {
+  &.ng-invalid {
+    background: #da9c9c;
+  }
+}
