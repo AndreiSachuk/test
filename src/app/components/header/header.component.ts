@@ -1,20 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  filter,
-  startWith,
-} from 'rxjs/operators';
-import { WorkerService } from '@/app/services/worker.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, filter, startWith } from 'rxjs/operators';
+import { WorkerService } from '@/app/shared/services/worker/worker.service';
 import { WorkerUpdateData } from '@interfaces';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { FormService } from '@/app/shared/services/from/form.service';
+import { AdditionalDataService } from '@/app/shared/services/additional-data/additional-data.service';
 
 @UntilDestroy()
 @Component({
@@ -34,7 +24,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private workerService: WorkerService,
-    private formService: FormService
+    private additionalDataService: AdditionalDataService
   ) {}
 
   ngOnInit() {
@@ -53,7 +43,7 @@ export class HeaderComponent implements OnInit {
     this.idsForm.valueChanges
       .pipe(debounceTime(300), distinctUntilChanged(), untilDestroyed(this))
       .subscribe((formValue: string) => {
-        this.formService.setIds(formValue);
+        this.additionalDataService.setIds(formValue);
       });
   }
 }

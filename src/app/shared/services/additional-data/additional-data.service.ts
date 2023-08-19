@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class FormService {
+export class AdditionalDataService {
   private ids: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   public readonly ids$: Observable<string[]> = this.ids.asObservable();
 

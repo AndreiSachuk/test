@@ -10,16 +10,16 @@ export const generateColor = (): string => {
   return '#' + color.padStart(6, '0');
 };
 
-export const generateId = (): string =>
-  String(Math.floor(Math.random() * 1000));
+export const generateId = (): string => String(Math.floor(Math.random() * 1000));
 
 export const generateInt = (): number => Math.floor(Math.random() * 1000);
 
 export const generateNumber = (): string => {
-  const randomFloat = Math.random().toFixed(18);
+  const DECIMAL_NUMBERS = 18;
+  const randomFloat = Math.random().toFixed(DECIMAL_NUMBERS);
   const randomInt = (Math.random() * 1000).toFixed(0);
   const bigDecimal = new BigNumber(randomInt + randomFloat);
-  return bigDecimal.toString();
+  return bigDecimal.toFormat(DECIMAL_NUMBERS, 1).toString();
 };
 
 export const generateData = () => {

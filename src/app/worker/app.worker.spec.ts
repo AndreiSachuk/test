@@ -1,10 +1,4 @@
-import {
-  generateColor,
-  generateData,
-  generateId,
-  generateInt,
-  generateNumber,
-} from './app.worker';
+import { generateColor, generateData, generateId, generateInt, generateNumber } from './app.worker';
 
 describe('generateColor', () => {
   it('should return a valid color string', () => {
@@ -30,10 +24,12 @@ describe('generateInt', () => {
 });
 
 describe('generateNumber', () => {
-  it('should return a random number with 18 decimal places', () => {
-    const number = generateNumber();
-    expect(number.split('.')[1]).toMatch(/^[0-9]{18}$/);
-  });
+  for (let i = 0; i < 20; i++) {
+    it(`should return a random number with 18 decimal places - Test ${i + 1}`, () => {
+      const number = generateNumber();
+      expect(number.split('.')[1]).toMatch(/^[0-9]{18}$/);
+    });
+  }
 });
 
 describe('generateData', () => {

@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Element } from '@interfaces';
-import { WorkerService } from '@/app/services/worker.service';
+import { WorkerService } from '@/app/shared/services/worker/worker.service';
 import { map, Observable } from 'rxjs';
-import { FormService } from '@/app/shared/services/from/form.service';
+import { AdditionalDataService } from '@/app/shared/services/additional-data/additional-data.service';
 
 @Component({
   selector: 'app-table',
@@ -15,10 +15,10 @@ export class TableComponent {
     .getDataFromWorker()
     .pipe(map(elements => elements.slice(-10)));
 
-  ids$ = this.formService.ids$;
+  ids$ = this.additionalDataService.ids$;
 
   constructor(
     private workerService: WorkerService,
-    private formService: FormService
+    private additionalDataService: AdditionalDataService
   ) {}
 }

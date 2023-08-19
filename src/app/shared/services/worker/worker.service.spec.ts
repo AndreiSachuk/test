@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { WorkerService } from './worker.service';
 import { Element, WorkerUpdateData } from '@interfaces';
+import { WorkerService } from './worker.service';
 
 describe('WorkerService', () => {
   let service: WorkerService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ providers: [WorkerService] });
     service = TestBed.inject(WorkerService);
   });
 

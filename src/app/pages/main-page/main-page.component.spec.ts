@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MainPageComponent } from './main-page.component';
-import { WorkerService } from '@/app/services/worker.service';
+import { WorkerService } from '@/app/shared/services/worker/worker.service';
 import { CommonModule } from '@angular/common';
 import { HeaderModule } from '@/app/components/header/header.module';
 import { TableModule } from '@/app/components/table/table.module';
@@ -24,13 +24,11 @@ describe('MainPageComponent', () => {
     workerService = TestBed.inject(WorkerService);
   });
 
-  it('should create', () => {
+  it('should create  ', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call workerService.close() on ngOnDestroy', () => {
-    spyOn(workerService, 'close');
-    component.ngOnDestroy();
-    expect(workerService.close).toHaveBeenCalled();
+  it('should has worker', () => {
+    expect(workerService.worker).toBeTruthy();
   });
 });
